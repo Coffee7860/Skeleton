@@ -15,12 +15,12 @@ namespace Testing2
         }
 
         [TestMethod]
-        public void ActivePropertyOK()
+        public void OrderDeliveryStatusPropertyOK()
         {
             clsOrders order = new clsOrders();
             Boolean TestData = true;
-            order.Active = TestData;
-            Assert.AreEqual(order.Active, TestData);
+            order.OrderDeliveryStatus = TestData;
+            Assert.AreEqual(order.OrderDeliveryStatus, TestData);
         }
 
         [TestMethod]
@@ -48,6 +48,33 @@ namespace Testing2
             string TestData = "LE5 3KT";
             order.OrderPostcode = TestData;
             Assert.AreEqual(order.OrderPostcode, TestData);
+        }
+
+        [TestMethod]
+        public void OrderCountyCodePropertyOK() 
+        {
+            clsOrders order = new clsOrders();
+            Int32 TestData = 2;
+            order.OrderCountyCode = TestData;
+            Assert.AreEqual(order.OrderCountyCode, TestData);
+        }
+
+        [TestMethod]
+        public void OrderTotalAmountPropertyOK()
+        {
+            clsOrders order = new clsOrders();
+            Int32 TestData = 100;
+            order.OrderTotalAmount = TestData;
+            Assert.AreEqual(order.OrderTotalAmount, TestData);
+        }
+
+        [TestMethod]
+        public void OrderNumberPropertyOK()
+        {
+            clsOrders order = new clsOrders();
+            Int32 TestData = 1;
+            order.OrderNumber = TestData;
+            Assert.AreEqual(order.OrderNumber, TestData);
         }
     }
 }
