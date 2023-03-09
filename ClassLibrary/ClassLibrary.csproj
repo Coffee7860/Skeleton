@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsOrders.cs" />
+    <Compile Include="clsStocks.cs" />
     <Compile Include="clsSupplier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
