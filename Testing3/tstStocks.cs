@@ -7,7 +7,7 @@ namespace Testing3
     public class tstStocks
     {
         [TestMethod]
-        public void TestMethod1()
+        public void InstanceOK()
         {
         }
     }

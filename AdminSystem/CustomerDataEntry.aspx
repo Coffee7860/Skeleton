@@ -154,7 +154,8 @@
                 </td>                
             </tr>
 
-            <%--Register Button--%>
+            <%--Register Button--
+                -----NOT WORKING COMMENTED OUT BY JAY,ULUC. PLEASE REVIEW------
             <tr>
                 <td colspan="2" align="center">
                     <asp:ImageButton ID="ImageButton1" runat="server" Height="49px" 
@@ -162,6 +163,7 @@
                         onclick="ImageButton1_Click" TabIndex="8" /><hr />
                 </td>
             </tr>
+                %>
 
             <%--Validation Summary For Displaying all Validations Error Mesage--%>
             <tr>
