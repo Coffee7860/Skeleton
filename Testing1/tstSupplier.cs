@@ -15,61 +15,61 @@ namespace Testing1
         }
 
         [TestMethod]
-        public void Order_datePropertyOK()
+        public void OrderDatePropertyOK()
         {
             clsSupplier supplier = new clsSupplier();
             DateTime TestData = DateTime.Now.Date;
-            supplier.Order_date = TestData;
-            Assert.AreEqual(supplier.Order_date, TestData);
+            supplier.OrderDate = TestData;
+            Assert.AreEqual(supplier.OrderDate, TestData);
        
         }
         [TestMethod]
-        public void SupplierIdPropertyOK()
+        public void SupplierIDPropertyOK()
         {
             clsSupplier supplier = new clsSupplier();
             Int32 TestData = 1;
-            supplier.SupplierId = TestData;
-            Assert.AreEqual(supplier.SupplierId, TestData);
+            supplier.SupplierID = TestData;
+            Assert.AreEqual(supplier.SupplierID, TestData);
         }
         [TestMethod]
-        public void Company_nameOK()
+        public void CompanyNameOK()
         {
             clsSupplier supplier = new clsSupplier();
             String TestData = "versace";
-            supplier.Company_name = TestData;
-            Assert.AreEqual(supplier.Company_name, TestData);
+            supplier.CompanyName = TestData;
+            Assert.AreEqual(supplier.CompanyName, TestData);
         }
         [TestMethod]
-        public void Company_addressOK()
+        public void CompanyAddressOK()
         {
             clsSupplier supplier = new clsSupplier();
             String TestData = "LO2 3BE";
-            supplier.Company_address = TestData;
-            Assert.AreEqual(supplier.Company_address, TestData);
+            supplier.CompanyAddress = TestData;
+            Assert.AreEqual(supplier.CompanyAddress, TestData);
         }
         [TestMethod]
-        public void Contact_numberOK()
+        public void ContactNumberOK()
         {
             clsSupplier supplier = new clsSupplier();
             String TestData = "05554152";
-            supplier.Contact_number = TestData;
-            Assert.AreEqual(supplier.Contact_number, TestData);
+            supplier.ContactNumber = TestData;
+            Assert.AreEqual(supplier.ContactNumber, TestData);
         }
         [TestMethod]
-        public void Unit_costOK()
+        public void UnitCostOK()
         {
             clsSupplier supplier = new clsSupplier();
             Int32 TestData = 155;
-            supplier.Unit_cost = TestData;
-            Assert.AreEqual(supplier.Unit_cost, TestData);
+            supplier.UnitCost = TestData;
+            Assert.AreEqual(supplier.UnitCost, TestData);
         }
         [TestMethod]
-        public void Perfume_IDOK()
+        public void LocationOK()
         {
             clsSupplier supplier = new clsSupplier();
-            Int32 TestData = 1;
-            supplier.Perfume_ID = TestData;
-            Assert.AreEqual(supplier.Perfume_ID, TestData);
+            Boolean TestData = true;
+            supplier.Location = TestData;
+            Assert.AreEqual(supplier.Location, TestData);
         }
 
 
