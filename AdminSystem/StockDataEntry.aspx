@@ -45,6 +45,21 @@
         Stock Date_Out
         <asp:TextBox ID="TextBox4" runat="server" style="margin-left: 130px" Width="276px"></asp:TextBox>
         <br />
+        <br />
+        Stock Delivered&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:CheckBox ID="Delivered" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" />
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <asp:CheckBox ID="No" runat="server" />
+        
+        <br />
+        <br />
+        <br />
+        <asp:Button ID="Button1" runat="server" Text="OK" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="Button2" runat="server" Text="Cancel" />
+        
+        <br />
     </form>
 </body>
 </html>
