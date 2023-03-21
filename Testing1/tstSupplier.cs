@@ -116,7 +116,7 @@ namespace Testing1
             Boolean OK = true;
             Int32 SupplierId = 2;
             Found = supplier.Find(SupplierId);
-            if (supplier.CompanyName != "Test Town")
+            if (supplier.CompanyName != "Apollo_comp")
             {
                 OK = false;
             }
@@ -130,7 +130,7 @@ namespace Testing1
             Boolean OK = true;
             Int32 SupplierId = 2;
             Found = supplier.Find(SupplierId);
-            if (supplier.CompanyAddress != "LE3 5JK")
+            if (supplier.CompanyAddress != "LO2 3BE")
             {
                 OK = false;
             }
@@ -144,7 +144,7 @@ namespace Testing1
             Boolean OK = true;
             Int32 SupplierId = 2;
             Found = supplier.Find(SupplierId);
-            if (supplier.ContactNumber != "0000")
+            if (supplier.ContactNumber != "05503123")
             {
                 OK = false;
             }
@@ -158,7 +158,7 @@ namespace Testing1
             Boolean OK = true;
             Int32 SupplierId = 2;
             Found = supplier.Find(SupplierId);
-            if (supplier.UnitCost != 150)
+            if (supplier.UnitCost != 88)
             {
                 OK = false;
             }
