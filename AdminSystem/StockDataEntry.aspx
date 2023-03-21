@@ -29,18 +29,26 @@
 
            
            
+            <br />
+
+           
+           
         </div>
         Stock Brand Name
         <asp:TextBox ID="TextBox5" runat="server" style="margin-left: 103px" Width="279px"></asp:TextBox>
         <br />
+        <br />
         StockQuantity
         <asp:TextBox ID="TextBox1" runat="server" style="margin-left: 141px" Width="279px"></asp:TextBox>
+        <br />
         <br />
         ProductPrice&nbsp;
         <asp:TextBox ID="TextBox2" runat="server" style="margin-left: 144px" Width="278px"></asp:TextBox>
         <br />
+        <br />
         Stock Date_In
         <asp:TextBox ID="TextBox3" runat="server" style="margin-left: 143px" Width="273px"></asp:TextBox>
+        <br />
         <br />
         Stock Date_Out
         <asp:TextBox ID="TextBox4" runat="server" style="margin-left: 130px" Width="276px"></asp:TextBox>
@@ -51,6 +59,9 @@
         &nbsp;&nbsp;&nbsp;&nbsp;
         
         <asp:CheckBox ID="No" runat="server" />
+        
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:CheckBox ID="Delivered" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" />
         
         <br />
         <br />

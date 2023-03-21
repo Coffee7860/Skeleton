@@ -83,14 +83,24 @@ namespace ClassLibrary
 
         public bool Find(int supplierId)
         {
-            mSupplierId = 2;
-            mOrderDate = Convert.ToDateTime("01 / 02 / 2023");
-            mCompanyName = "Test Town";
-            mCompanyAddress = "LE3 5JK";
-            mContactNumber = "0000";
-            mUnitCost = 150;
-            mLocation = true;
-            return true;
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@SupplierId",SupplierID);
+            DB.Execute("sproc_TblSupplier_FilterBySupplierId");
+            if (DB.Count == 1)
+            {
+                mSupplierId = Convert.ToInt32(DB.DataTable.Rows[0]["SupplierId"]);
+                mOrderDate = Convert.ToDateTime(DB.DataTable.Rows[0]["OrderDate"]);
+                mCompanyName = Convert.ToString(DB.DataTable.Rows[0]["CompanyName"]);
+                mCompanyAddress = Convert.ToString(DB.DataTable.Rows[0]["CompanyAddress"]);
+                mContactNumber = Convert.ToString(DB.DataTable.Rows[0]["ContactNumber"]);
+                mUnitCost = Convert.ToInt32(DB.DataTable.Rows[0]["UnitCost"]);
+                mLocation = Convert.ToBoolean(DB.DataTable.Rows[0]["Location"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         private Int32 mSupplierId;
         private DateTime mOrderDate;
