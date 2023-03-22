@@ -17,7 +17,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //Creating a new instance of clsOrders
         clsOrders order = new clsOrders();
         //Capturing the order number 
-        order.OrderAddress = TxtOrderAddress.Text;
+        order.OrderAddress = txtOrderAddress.Text;
         //store the address in the session object.
         Session["order"] = order;
         //navigate to viewer page

@@ -98,18 +98,27 @@ namespace ClassLibrary
         }
                 
 
-        public bool Find(int orderNumber)
+        public bool Find(int OrderNumber)
         {
-            //set the private data members to the test data value
-            mOrderNumber = 11;
-            mOrderDate = Convert.ToDateTime("24/12/2022");
-            mOrderAddress = "5, Canvendish Road";
-            mOrderPostcode = "LS2 3AR";
-            mOrderCountyCode = 826;
-            mOrderDeliveryStatus = true;
-            mOrderTotalAmount = 200;
-            //always return true
-            return true;
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@OrderNumber", OrderNumber);
+            DB.Execute("sproc_tblOrders_FilterByOrderNumber");
+            if(DB.Count == 1)
+            {
+                mOrderNumber = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNumber"]);
+                mOrderDate = Convert.ToDateTime(DB.DataTable.Rows[0]["OrderDate"]);
+                mOrderAddress = Convert.ToString(DB.DataTable.Rows[0]["OrderAddress"]);
+                mOrderPostcode = Convert.ToString(DB.DataTable.Rows[0]["OrderPostcode"]);
+                mOrderCountyCode = Convert.ToInt32(DB.DataTable.Rows[0]["OrderCountyCode"]);
+                mOrderDeliveryStatus = Convert.ToBoolean(DB.DataTable.Rows[0]["OrderDeliverystatus"]);
+                mOrderTotalAmount = Convert.ToInt32(DB.DataTable.Rows[0]["OrderTotalAmount"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+           
         }
     }
 }
