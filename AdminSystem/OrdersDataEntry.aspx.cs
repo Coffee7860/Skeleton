@@ -28,4 +28,24 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
 
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        clsOrders order = new clsOrders();
+        Int32 OrderNumber;
+        Boolean Found = false;
+        OrderNumber = Convert.ToInt32(txtOrderNumber.Text);
+        Found = order.Find(OrderNumber);
+        if(Found == true)
+        {
+            txtOrderNumber.Text = order.OrderNumber.ToString();
+            txtOrderDate.Text = order.OrderDate.ToString();
+            txtOrderAddress.Text = order.OrderAddress.ToString();
+            txtOrderCountycode.Text = order.OrderCountyCode.ToString();
+            txtOrderPostcode.Text = order.OrderPostcode.ToString();
+            chkOrderDelivered.Checked = order.OrderDeliveryStatus;
+            chkOrderProcessing.Checked = order.OrderDeliveryStatus;
+            txtOrderTotalAmount.Text = order.OrderTotalAmount.ToString();
+        }
+    }
 }
