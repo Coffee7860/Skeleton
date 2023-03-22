@@ -100,7 +100,7 @@
             <br /><br />
           
             <asp:Label ID="lblOrderAddress" runat="server" CssClass="auto-style5" style="z-index: 1" Text="Address" height="19px" width="91px"></asp:Label>
-            <asp:TextBox ID="TxtOrderAddress" runat="server" CssClass="auto-style8" style="z-index: 1" width="128px"></asp:TextBox>
+            <asp:TextBox ID="txtOrderAddress" runat="server" CssClass="auto-style8" style="z-index: 1" width="128px"></asp:TextBox>
 
             <br /><br />
             
