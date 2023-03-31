@@ -125,19 +125,34 @@ namespace ClassLibrary
         {
             string Error = "";
             DateTime DateTemp;
-
-            DateTemp = Convert.ToDateTime(orderDate);
-            if(DateTemp < DateTime.Now.Date)
+            try
             {
-                //Record The error
-                Error = Error + "the Date Cannot be in the past: ";
+                DateTemp = Convert.ToDateTime(orderDate);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //Record The error
+                    Error = Error + "the Date Cannot be in the past: ";
+                }
+
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The Date cannot be in future: ";
+                }
+            }
+            catch 
+            {
+                Error = Error + "The Date was not a valid date";
             }
 
-            if(DateTemp > DateTime.Now.Date)
+            if (orderPostcode.Length == 0)
             {
-                Error = Error + "The Date cannot be in future: ";
+                Error = Error + "The Postcode May not be blank: ";
             }
 
+            if (orderPostcode.Length > 10)
+            {
+                Error = Error + "The Postcode Must be Less than 10 Character: ";
+            }
             return Error;
         }
 
