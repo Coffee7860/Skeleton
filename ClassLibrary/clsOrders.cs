@@ -120,5 +120,26 @@ namespace ClassLibrary
             }
            
         }
+
+        public string Valid(string orderAddress, string orderPostcode, string orderDate)
+        {
+            string Error = "";
+            DateTime DateTemp;
+
+            DateTemp = Convert.ToDateTime(orderDate);
+            if(DateTemp < DateTime.Now.Date)
+            {
+                //Record The error
+                Error = Error + "the Date Cannot be in the past: ";
+            }
+
+            if(DateTemp > DateTime.Now.Date)
+            {
+                Error = Error + "The Date cannot be in future: ";
+            }
+
+            return Error;
+        }
+
     }
 }
