@@ -7,15 +7,19 @@ namespace Testing2
     [TestClass]
     public class tstOrders
     {
+        // Good Test Data
+        //Create some test Data to pass to the Method
+        string OrderAddress = "21, abc";
+        string OrderPostcode = "LE5 3KT";
+        string OrderDate = DateTime.Now.Date.ToString();
+
         [TestMethod]
         public void InstanceOK()
         {
             clsOrders order = new clsOrders();
             Assert.IsNotNull(order);
         }
-
-       
-
+        
         [TestMethod]
         public void OrderDeliveryStatusPropertyOK()
         {
@@ -206,6 +210,79 @@ namespace Testing2
             }
             //test to see that the result is correct
             Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            clsOrders order = new clsOrders();
+            String Error = "";
+            Error = order.Valid(OrderAddress, OrderPostcode, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderDateExtremeMin()
+        {
+            clsOrders order = new clsOrders();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-10);
+            string OrderDate = TestDate.ToString();
+            Error = order.Valid(OrderAddress, OrderPostcode, OrderDate);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderDateMinLessOne() 
+        {
+            clsOrders order = new clsOrders();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(-1);
+            string OrderDate = TestDate.ToString();
+            Error = order.Valid(OrderAddress, OrderPostcode, OrderDate);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderDateMin() 
+        {
+            clsOrders order = new clsOrders();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            string OrderDate = TestDate.ToString();
+            Error = order.Valid(OrderAddress, OrderPostcode, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderDateMinPlusOne()
+        {
+            clsOrders order = new clsOrders();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(1);
+            string OrderDate = TestDate.ToString();
+            Error = order.Valid(OrderAddress, OrderPostcode, OrderDate);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderDateExtremeMax() 
+        {
+            clsOrders order = new clsOrders();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(10);
+            string OrderDate = TestDate.ToString();
+            Error = order.Valid(OrderAddress, OrderPostcode, OrderDate);
+            Assert.AreNotEqual(Error, "");
         }
     }
 }
