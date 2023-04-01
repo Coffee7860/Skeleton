@@ -153,6 +153,17 @@ namespace ClassLibrary
             {
                 Error = Error + "The Postcode Must be Less than 10 Character: ";
             }
+
+            if (orderAddress.Length == 0)
+            {
+                Error = Error + "The Address Cannot be blank";
+            }
+
+            if (orderAddress.Length > 48)
+            {
+                Error = Error + "The Address Should be Under 22 Character";
+            }
+
             return Error;
         }
 

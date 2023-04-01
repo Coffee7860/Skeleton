@@ -354,5 +354,79 @@ namespace Testing2
             Error = order.Valid(OrderAddress, OrderPostcode, OrderDate);
             Assert.AreEqual(Error, "");
         }
+
+        [TestMethod]
+        public void OrderAddressMinLessOne()
+        {
+            clsOrders order = new clsOrders();
+            String Error = "";
+            string OrderAddress = "";
+            Error = order.Valid(OrderAddress, OrderPostcode, OrderDate);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderAddressMin()
+        {
+            clsOrders order = new clsOrders();
+            String Error = "";
+            string OrderAddress = "b";
+            Error = order.Valid(OrderAddress, OrderPostcode, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderAddressMinPlusOne()
+        {
+            clsOrders order = new clsOrders();
+            String Error = "";
+            string OrderAddress = "aa";
+            Error = order.Valid(OrderAddress, OrderPostcode, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderAddressMaxLessOne()
+        {
+            clsOrders order = new clsOrders();
+            String Error = "";
+            string OrderAddress = "";
+            OrderAddress = OrderAddress.PadRight(47, 'a');
+            Error = order.Valid(OrderAddress, OrderPostcode, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderAddressMax()
+        {
+            clsOrders order = new clsOrders();
+            String Error = "";
+            string OrderAddress = "";
+            OrderAddress = OrderAddress.PadRight(48, 'a');
+            Error = order.Valid(OrderAddress, OrderPostcode, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderAddressMaxPlusOne()
+        {
+            clsOrders order = new clsOrders();
+            String Error = "";
+            string OrderAddress = "";
+            OrderAddress = OrderAddress.PadRight(49, 'a');
+            Error = order.Valid(OrderAddress, OrderPostcode, OrderDate);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void OrderAddressMid()
+        {
+            clsOrders order = new clsOrders();
+            String Error = "";
+            string OrderAddress = ""; 
+            OrderAddress = OrderAddress.PadRight(24, 'a');
+            Error = order.Valid(OrderAddress, OrderPostcode, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
     }
 }
