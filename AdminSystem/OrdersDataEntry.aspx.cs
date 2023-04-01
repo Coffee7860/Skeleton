@@ -17,11 +17,28 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //Creating a new instance of clsOrders
         clsOrders order = new clsOrders();
         //Capturing the order number 
-        order.OrderAddress = txtOrderAddress.Text;
-        //store the address in the session object.
-        Session["order"] = order;
-        //navigate to viewer page
-        Response.Redirect("OrdersViewer.aspx");
+        string OrderAddress = txtOrderAddress.Text;
+        string OrderPostcode = txtOrderPostcode.Text;
+        string OrderDate = txtOrderDate.Text;
+
+        string Error = "";
+        Error = order.Valid(OrderAddress, OrderPostcode, OrderDate);
+        if (Error == "")
+        {
+            order.OrderAddress = OrderAddress;
+            order.OrderPostcode = OrderPostcode;
+            order.OrderDate = Convert.ToDateTime(OrderDate);
+            //store the address in the session object.
+            Session["order"] = order;
+            //navigate to viewer page
+            Response.Redirect("OrdersViewer.aspx");
+        }
+        else
+        {
+            //Display The Error Message
+            lblError.Text = Error;
+        }
+       
     }
 
     protected void Button2_Click(object sender, EventArgs e)
