@@ -29,7 +29,19 @@ namespace ClassLibrary
 
             }
         }
-        public clsOrders ThisOrder { get; set; }
+
+        clsOrders mThisOrder = new clsOrders();
+        public clsOrders ThisOrder 
+        {
+            get 
+            {
+                return mThisOrder;
+            }
+            set
+            {
+                mThisOrder = value;
+            } 
+        }
 
         public clsOrderCollection()
         {
@@ -52,6 +64,19 @@ namespace ClassLibrary
                 Index++;
             }
         }
-        
+
+
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@OrderAddress", mThisOrder.OrderAddress);
+            DB.AddParameter("@OrderDate", mThisOrder.OrderDate);
+            DB.AddParameter("@OrderPostcode", mThisOrder.OrderPostcode);
+            DB.AddParameter("@OrderCountyCode", mThisOrder.OrderCountyCode);
+            DB.AddParameter("@OrderDeliveryStatus", mThisOrder.OrderDeliveryStatus);
+            DB.AddParameter("@OrderTotalAmount", mThisOrder.OrderTotalAmount);
+
+            return DB.Execute("sproc_tblOrders_Insert"); 
+        }
     }
 }
