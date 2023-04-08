@@ -84,5 +84,24 @@ namespace Testing2
         }
         */
 
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            clsOrderCollection AllOrder = new clsOrderCollection();
+            clsOrders TestItem = new clsOrders();
+            Int32 PrimaryKey = 0;
+            TestItem.OrderAddress = "12,ad";
+            TestItem.OrderNumber = 1;
+            TestItem.OrderDate = DateTime.Now.Date;
+            TestItem.OrderPostcode = "LE3 5WE";
+            TestItem.OrderDeliveryStatus = true;
+            TestItem.OrderTotalAmount = 1;
+            TestItem.OrderCountyCode = 1;
+            AllOrder.ThisOrder = TestItem;
+            PrimaryKey = AllOrder.Add();
+            TestItem.OrderNumber = PrimaryKey;
+            AllOrder.ThisOrder.Find(PrimaryKey);
+            Assert.AreEqual(AllOrder.ThisOrder, TestItem);
+        }
     }
 }

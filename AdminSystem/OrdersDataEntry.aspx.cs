@@ -31,7 +31,12 @@ public partial class _1_DataEntry : System.Web.UI.Page
             //store the address in the session object.
             Session["order"] = order;
             //navigate to viewer page
-            Response.Redirect("OrdersViewer.aspx");
+            //Response.Redirect("OrdersViewer.aspx");
+
+            clsOrderCollection OrderList = new clsOrderCollection();
+            OrderList.ThisOrder = order;
+            OrderList.Add();
+            Response.Redirect("OrdersList.aspx");
         }
         else
         {
