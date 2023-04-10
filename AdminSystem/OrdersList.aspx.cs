@@ -89,4 +89,38 @@ public partial class _1_List : System.Web.UI.Page
             lblError.Text = "Please select a record to delete from the list";
         }
     }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        //create an instance of the Order Colletion
+        clsOrderCollection Order = new clsOrderCollection();
+        Order.ReportByPostcode(txtFilter.Text);
+        lstOrderList.DataSource = Order.OrderList;
+
+        //set the name of the primary key
+        lstOrderList.DataValueField = "OrderNumber";
+        //set the name of the feild to display
+        lstOrderList.DataTextField = "OrderPostcode";
+        //bind  the data to the list
+        lstOrderList.DataBind();
+    }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        //create an instance of the order collection
+        clsOrderCollection Order = new clsOrderCollection();
+        Order.ReportByPostcode("");
+
+        //Clear my existing filter to tidy up the interface
+        txtFilter.Text = "";
+        lstOrderList.DataSource = Order.OrderList;
+        //set the name of the primary key
+        lstOrderList.DataValueField = "OrderNumber";
+        //set the name of the field to display
+        lstOrderList.DataTextField = "OrderPostcode";
+
+        //bind the data to the list
+        lstOrderList.DataBind();
+
+    }
 }

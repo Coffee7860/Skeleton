@@ -26,13 +26,29 @@
         }
         .auto-style4 {
             position: absolute;
-            top: 376px;
+            top: 502px;
             left: 10px;
+            z-index: 1;
         }
         .auto-style5 {
             position: absolute;
             top: 338px;
             left: 106px;
+        }
+        .auto-style6 {
+            position: absolute;
+            top: 395px;
+            left: 131px;
+        }
+        .auto-style7 {
+            position: absolute;
+            top: 433px;
+            left: 10px;
+        }
+        .auto-style8 {
+            position: absolute;
+            top: 433px;
+            left: 74px;
         }
     </style>
 </head>
@@ -64,7 +80,21 @@
             <asp:Button ID="btnDelete" runat="server" CssClass="auto-style5" OnClick="btnDelete_Click" style="z-index: 1" Text="Delete" />
             <br />
             <br />
-            <asp:Label ID="lblError" runat="server" CssClass="auto-style4" style="z-index: 1" Text="[lblError]"></asp:Label>
+            <br />
+            Enter a Postcode:-&nbsp;
+            <asp:TextBox ID="txtFilter" runat="server" CssClass="auto-style6" style="z-index: 1"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Button ID="btnApply" runat="server" CssClass="auto-style7" OnClick="btnApply_Click" style="z-index: 1" Text="Apply" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnClear" runat="server" CssClass="auto-style8" OnClick="btnClear_Click" style="z-index: 1" Text="Clear" />
+            <br />
+            <br />
+            <asp:Label ID="lblError" runat="server" CssClass="auto-style4" Text="[lblError]"></asp:Label>
+            <br />
+            <br />
+            <br />
+            <br />
             <br />
             <br />
         </div>
