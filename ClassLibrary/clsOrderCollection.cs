@@ -30,15 +30,19 @@ namespace ClassLibrary
             }
         }
 
+        //private data member ThisOrder
         clsOrders mThisOrder = new clsOrders();
+        //Public Propety For ThisOrder
         public clsOrders ThisOrder 
         {
             get 
             {
+                //Return the private member 
                 return mThisOrder;
             }
             set
             {
+                //set the private member
                 mThisOrder = value;
             } 
         }
@@ -68,7 +72,11 @@ namespace ClassLibrary
 
         public int Add()
         {
+            //Adds a new record to the database based on the value of the ThisOrder
+            //Connect To databse
             clsDataConnection DB = new clsDataConnection();
+
+            //set the parameter for the stored procedure
             DB.AddParameter("@OrderAddress", mThisOrder.OrderAddress);
             DB.AddParameter("@OrderDate", mThisOrder.OrderDate);
             DB.AddParameter("@OrderPostcode", mThisOrder.OrderPostcode);
@@ -76,7 +84,38 @@ namespace ClassLibrary
             DB.AddParameter("@OrderDeliveryStatus", mThisOrder.OrderDeliveryStatus);
             DB.AddParameter("@OrderTotalAmount", mThisOrder.OrderTotalAmount);
 
+            //execute the query returning the primary key 
             return DB.Execute("sproc_tblOrders_Insert"); 
+        }
+
+        public void Update()
+        {
+            //update an existing record based on the value of ThisOrder
+            //Connect to database
+            clsDataConnection DB = new clsDataConnection();
+
+            //set the parameter for the stored procedure.
+            DB.AddParameter("@OrderAddress", mThisOrder.OrderAddress);
+            DB.AddParameter("@OrderNumber", mThisOrder.OrderNumber);
+            DB.AddParameter("@OrderPostcode", mThisOrder.OrderPostcode);
+            DB.AddParameter("@OrderCountyCode", mThisOrder.OrderCountyCode);
+            DB.AddParameter("@OrderDeliveryStatus", mThisOrder.OrderDeliveryStatus);
+            DB.AddParameter("@OrderTotalAmount", mThisOrder.OrderTotalAmount);
+            DB.AddParameter("@OrderDate", mThisOrder.OrderDate);
+
+            //execute the stored procedure.
+            DB.Execute("sproc_tblOrders_Update");
+        }
+
+        public void Delete()
+        {
+            //delete the record pointed by thisOrder
+            //Connect to database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@OrderNumber", mThisOrder.OrderNumber);
+            //execute the stored procedure
+            DB.Execute("sproc_tblOrders_Delete");
         }
     }
 }

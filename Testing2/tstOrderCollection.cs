@@ -87,9 +87,15 @@ namespace Testing2
         [TestMethod]
         public void AddMethodOK()
         {
+            //create an instance of the class we want to create
             clsOrderCollection AllOrder = new clsOrderCollection();
+            //create the item to test data
             clsOrders TestItem = new clsOrders();
+
+            //variable to store the primary key 
             Int32 PrimaryKey = 0;
+
+            //set its properties
             TestItem.OrderAddress = "12,ad";
             TestItem.OrderNumber = 1;
             TestItem.OrderDate = DateTime.Now.Date;
@@ -97,11 +103,101 @@ namespace Testing2
             TestItem.OrderDeliveryStatus = true;
             TestItem.OrderTotalAmount = 1;
             TestItem.OrderCountyCode = 1;
+
+            //set ThisOrder to the TestData
             AllOrder.ThisOrder = TestItem;
+
+            //Add the record 
             PrimaryKey = AllOrder.Add();
+            //set the primary key of the test data
             TestItem.OrderNumber = PrimaryKey;
+            //find the record using the primary key
             AllOrder.ThisOrder.Find(PrimaryKey);
+            //test to see that the two values are the same
             Assert.AreEqual(AllOrder.ThisOrder, TestItem);
+        }
+
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            //create an instance of the class we want to create.
+            clsOrderCollection AllOrder = new clsOrderCollection();
+            //create the item of the test data
+            clsOrders TestItem = new clsOrders();
+            //variable to store the primary key
+            Int32 PrimaryKey = 0;
+
+            //Set its Properties.
+            TestItem.OrderAddress = "12,ad";
+            TestItem.OrderDate = DateTime.Now.Date;
+            TestItem.OrderPostcode = "LE3 5WE";
+            TestItem.OrderDeliveryStatus = true;
+            TestItem.OrderTotalAmount = 1;
+            TestItem.OrderCountyCode = 1;
+
+            //set ThisOrder to the Testdata
+            AllOrder.ThisOrder = TestItem;
+
+            //add the record
+            PrimaryKey = AllOrder.Add();
+            //set the primary key of the test data
+            TestItem.OrderNumber = PrimaryKey;
+
+            //modify the test data
+            TestItem.OrderAddress = "13,df";
+            TestItem.OrderDate = DateTime.Now.Date;
+            TestItem.OrderPostcode = "LE8 11HJ";
+            TestItem.OrderDeliveryStatus = false;
+            TestItem.OrderCountyCode = 10;
+            TestItem.OrderTotalAmount = 10;
+
+            //set the record based on the new test data
+            AllOrder.ThisOrder = TestItem;
+            
+            //update the record
+            AllOrder.Update();
+            //find the record using priamry key
+            AllOrder.ThisOrder.Find(PrimaryKey);
+            //test to see thisorder match the test data
+            Assert.AreEqual(AllOrder.ThisOrder, TestItem);
+        }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsOrderCollection AllOrder = new clsOrderCollection();
+            //create the item of the testdata
+            clsOrders TestItem = new clsOrders();
+
+            //variable yto store the primary key
+            Int32 PrimaryKey = 0;
+
+            //Set its Properties
+            TestItem.OrderNumber = 1;
+            TestItem.OrderDate = DateTime.Now.Date;
+            TestItem.OrderPostcode = "LE3 5WE";
+            TestItem.OrderDeliveryStatus = true;
+            TestItem.OrderAddress = "12,ad";
+            TestItem.OrderCountyCode = 1;
+            TestItem.OrderTotalAmount = 1;
+
+            //set ThisOrder to the TestData
+            AllOrder.ThisOrder = TestItem;
+            //Add the record.
+            PrimaryKey = AllOrder.Add();
+
+            //set the primary key of the test data
+            TestItem.OrderNumber = PrimaryKey;
+            //find the record using the primary key
+            AllOrder.ThisOrder.Find(PrimaryKey);
+
+            //Delete the record 
+            AllOrder.Delete();
+            //now find the record 
+            Boolean Found = AllOrder.ThisOrder.Find(PrimaryKey);
+            //test to see that the record was not found.
+            Assert.IsFalse(Found);
         }
     }
 }

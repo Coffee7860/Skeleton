@@ -63,11 +63,6 @@
             top: 243px;
             left: 10px;
         }
-        .auto-style12 {
-            position: absolute;
-            top: 243px;
-            left: 106px;
-        }
         .auto-style13 {
             position: absolute;
             top: 281px;
@@ -135,7 +130,6 @@
             <br /><br />
 
             <asp:CheckBox ID="chkOrderDelivered" runat="server" CssClass="auto-style11" style="z-index: 1" Text="Delivered" />
-            <asp:CheckBox ID="chkOrderProcessing" runat="server" CssClass="auto-style12" style="z-index: 1" Text="Processing" />
 
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
