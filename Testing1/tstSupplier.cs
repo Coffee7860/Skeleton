@@ -24,15 +24,15 @@ namespace Testing1
        
         }
         [TestMethod]
-        public void SupplierIDPropertyOK()
+        public void SupplierIdPropertyOK()
         {
             clsSupplier supplier = new clsSupplier();
-            Int32 TestData = 1;
-            supplier.SupplierID = TestData;
-            Assert.AreEqual(supplier.SupplierID, TestData);
+            Int32 TestData = 2;
+            supplier.SupplierId = TestData;
+            Assert.AreEqual(supplier.SupplierId, TestData);
         }
         [TestMethod]
-        public void CompanyNameOK()
+        public void CompanyNamePropertyOK()
         {
             clsSupplier supplier = new clsSupplier();
             String TestData = "versace";
@@ -40,7 +40,7 @@ namespace Testing1
             Assert.AreEqual(supplier.CompanyName, TestData);
         }
         [TestMethod]
-        public void CompanyAddressOK()
+        public void CompanyAddressPropertyOK()
         {
             clsSupplier supplier = new clsSupplier();
             String TestData = "LO2 3BE";
@@ -48,7 +48,7 @@ namespace Testing1
             Assert.AreEqual(supplier.CompanyAddress, TestData);
         }
         [TestMethod]
-        public void ContactNumberOK()
+        public void ContactNumberPropertyOK()
         {
             clsSupplier supplier = new clsSupplier();
             String TestData = "05554152";
@@ -56,7 +56,7 @@ namespace Testing1
             Assert.AreEqual(supplier.ContactNumber, TestData);
         }
         [TestMethod]
-        public void UnitCostOK()
+        public void UnitCostPropertyOK()
         {
             clsSupplier supplier = new clsSupplier();
             Int32 TestData = 155;
@@ -64,7 +64,7 @@ namespace Testing1
             Assert.AreEqual(supplier.UnitCost, TestData);
         }
         [TestMethod]
-        public void LocationOK()
+        public void LocationPropertyOK()
         {
             clsSupplier supplier = new clsSupplier();
             Boolean TestData = true;
@@ -88,7 +88,7 @@ namespace Testing1
             Boolean OK = true;
             Int32 SupplierId = 2;
             Found = supplier.Find(SupplierId);
-            if(supplier.SupplierID !=2)
+            if(supplier.SupplierId != 2)
             {
                 OK = false;
             }
@@ -102,7 +102,7 @@ namespace Testing1
             Boolean OK = true;
             Int32 SupplierId = 2;
             Found = supplier.Find(SupplierId);
-            if (supplier.OrderDate != Convert.ToDateTime("01 / 02 / 2023"))
+            if (supplier.OrderDate != Convert.ToDateTime("1.02.2023"))
             {
                 OK = false;
             }
@@ -178,12 +178,5 @@ namespace Testing1
             }
             Assert.IsTrue(OK);
         }
-
-
-
-
-
-
-
     }
 }

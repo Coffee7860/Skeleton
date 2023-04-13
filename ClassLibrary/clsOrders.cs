@@ -98,18 +98,74 @@ namespace ClassLibrary
         }
                 
 
-        public bool Find(int orderNumber)
+        public bool Find(int OrderNumber)
         {
-            //set the private data members to the test data value
-            mOrderNumber = 11;
-            mOrderDate = Convert.ToDateTime("24/12/2022");
-            mOrderAddress = "5, Canvendish Road";
-            mOrderPostcode = "LS2 3AR";
-            mOrderCountyCode = 826;
-            mOrderDeliveryStatus = true;
-            mOrderTotalAmount = 200;
-            //always return true
-            return true;
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@OrderNumber", OrderNumber);
+            DB.Execute("sproc_tblOrders_FilterByOrderNumber");
+            if(DB.Count == 1)
+            {
+                mOrderNumber = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNumber"]);
+                mOrderDate = Convert.ToDateTime(DB.DataTable.Rows[0]["OrderDate"]);
+                mOrderAddress = Convert.ToString(DB.DataTable.Rows[0]["OrderAddress"]);
+                mOrderPostcode = Convert.ToString(DB.DataTable.Rows[0]["OrderPostcode"]);
+                mOrderCountyCode = Convert.ToInt32(DB.DataTable.Rows[0]["OrderCountyCode"]);
+                mOrderDeliveryStatus = Convert.ToBoolean(DB.DataTable.Rows[0]["OrderDeliverystatus"]);
+                mOrderTotalAmount = Convert.ToInt32(DB.DataTable.Rows[0]["OrderTotalAmount"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+           
         }
+
+        public string Valid(string orderAddress, string orderPostcode, string orderDate)
+        {
+            string Error = "";
+            DateTime DateTemp;
+            try
+            {
+                DateTemp = Convert.ToDateTime(orderDate);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //Record The error
+                    Error = Error + "the Date Cannot be in the past: ";
+                }
+
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The Date cannot be in future: ";
+                }
+            }
+            catch 
+            {
+                Error = Error + "The Date was not a valid date";
+            }
+
+            if (orderPostcode.Length == 0)
+            {
+                Error = Error + "The Postcode May not be blank: ";
+            }
+
+            if (orderPostcode.Length > 10)
+            {
+                Error = Error + "The Postcode Must be Less than 10 Character: ";
+            }
+
+            if (orderAddress.Length == 0)
+            {
+                Error = Error + "The Address Cannot be blank";
+            }
+
+            if (orderAddress.Length > 48)
+            {
+                Error = Error + "The Address Should be Under 22 Character";
+            }
+
+            return Error;
+        }
+
     }
 }
