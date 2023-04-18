@@ -10,5 +10,10 @@ namespace ClassLibrary
         public DateTime Stock_In_Date { get; set; }
         public DateTime Stock_Out_Date { get; set; }
         public string Stock_BrandName { get; set; }
+
+        public bool Find(int stocksId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

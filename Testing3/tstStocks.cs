@@ -67,6 +67,120 @@ namespace Testing3
             stocks.Stock_BrandName = TestData;
             Assert.AreEqual(stocks.Stock_BrandName, TestData);
         }
-
+        [TestMethod]
+        public void StocksIdPropertyOK()
+        {
+            clsStocks stocks = new clsStocks();
+            Int32 TestData = 1;
+            stocks.StocksId = TestData;
+            Assert.AreEqual(stocks.StocksId, TestData);
+        }
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsStocks stocks = new clsStocks();
+            Boolean Found = false;
+            Int32 StocksId = 1;
+            Found = stocks.Find(StocksId);
+            Assert.IsTrue(Found);
+        }
+        [TestMethod]
+        public void TestStocksIdNoFound()
+        {
+            clsStocks stocks = new clsStocks();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StocksId = 1;
+            Found = stocks.Find(StocksId);
+            if (stocks.StocksId != 1)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestStocksQuantityFound()
+        {
+            clsStocks stocks = new clsStocks();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StocksId = 100;
+            Found = stocks.Find(StocksId);
+            if (stocks.StocksQuantity != 100)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestStocks_BrandNameFound()
+        {
+            clsStocks stocks = new clsStocks();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StocksId = 2;
+            Found = stocks.Find(StocksId);
+            if (stocks.Stock_BrandName != "Boss")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestPruductPriceFound()
+        {
+            clsStocks stocks = new clsStocks();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StocksId = 2;
+            Found = stocks.Find(StocksId);
+            if (stocks.PruductPrice != 100)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestStock_In_DateFound()
+        {
+            clsStocks stocks = new clsStocks();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StocksId = 2;
+            Found = stocks.Find(StocksId);
+            if (stocks.Stock_In_Date != Convert.ToDateTime("1.02.2023"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestDeliveryStatusFound()
+        {
+            clsStocks stocks = new clsStocks();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StocksId = 2;
+            Found = stocks.Find(StocksId);
+            if (stocks.StocksDeliveryStatus != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestStock_out_DateFound()
+        {
+            clsStocks stocks = new clsStocks();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 StocksId = 2;
+            Found = stocks.Find(StocksId);
+            if (stocks.Stock_Out_Date != Convert.ToDateTime("1.02.2023"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
     }
 }
