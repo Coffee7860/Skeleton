@@ -15,7 +15,7 @@ namespace ClassLibrary
 
         public bool Find(int stocksId)
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }
