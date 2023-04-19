@@ -118,7 +118,7 @@ namespace Testing3
             clsStocks stocks = new clsStocks();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 StocksId = 2;
+            Int32 StocksId = 1;
             Found = stocks.Find(StocksId);
             if (stocks.Stock_BrandName != "Boss")
             {
@@ -146,9 +146,9 @@ namespace Testing3
             clsStocks stocks = new clsStocks();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 StocksId = 2;
+            Int32 StocksId = 1;
             Found = stocks.Find(StocksId);
-            if (stocks.Stock_In_Date != Convert.ToDateTime("1.02.2023"))
+            if (stocks.Stock_In_Date != Convert.ToDateTime("20.03.2023"))
             {
                 OK = false;
             }
@@ -160,7 +160,7 @@ namespace Testing3
             clsStocks stocks = new clsStocks();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 StocksId = 2;
+            Int32 StocksId = 1;
             Found = stocks.Find(StocksId);
             if (stocks.StocksDeliveryStatus != true)
             {
@@ -174,9 +174,9 @@ namespace Testing3
             clsStocks stocks = new clsStocks();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 StocksId = 2;
+            Int32 StocksId = 1;
             Found = stocks.Find(StocksId);
-            if (stocks.Stock_Out_Date != Convert.ToDateTime("1.02.2023"))
+            if (stocks.Stock_Out_Date != Convert.ToDateTime("22.03.2023"))
             {
                 OK = false;
             }
