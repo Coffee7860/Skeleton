@@ -5,10 +5,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-</head>
+    </head>
 <body>
     <form id="form1" runat="server">
         <div>
+            <br />
+            Are you sure you want to delete this record ?<br />
+            <br />
+            <asp:Button ID="btnYes" runat="server" OnClick="btnYes_Click" Text="Yes" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnNo" runat="server" height="26px" OnClick="btnNo_Click" Text="No" width="37px" />
+            <br />
+            <br />
+            <br />
         </div>
     </form>
 </body>
