@@ -14,7 +14,7 @@ namespace ClassLibrary
 
         public bool Find(int staffId)
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }
