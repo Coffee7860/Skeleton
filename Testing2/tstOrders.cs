@@ -88,7 +88,7 @@ namespace Testing2
         {
             clsOrders order = new clsOrders();
             Boolean Found = false;
-            Int32 OrderNumber = 11;
+            Int32 OrderNumber = 1;
             Found = order.Find(OrderNumber);
             Assert.IsTrue(Found);
         }
@@ -99,10 +99,10 @@ namespace Testing2
             clsOrders order = new clsOrders();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderNumber = 11;
+            Int32 OrderNumber = 1;
             Found = order.Find(OrderNumber);
             // check the order number
-            if (order.OrderNumber != 11)
+            if (order.OrderNumber != 1)
             {
                 OK = false;
             }
@@ -116,10 +116,10 @@ namespace Testing2
             clsOrders order = new clsOrders();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderNumber = 11;
+            Int32 OrderNumber = 1;
             Found = order.Find(OrderNumber);
             // check the order number
-            if (order.OrderDate != Convert.ToDateTime("24/12/2022"))
+            if (order.OrderDate != Convert.ToDateTime("12/02/2023"))
             {
                 OK = false;
             }
@@ -133,10 +133,10 @@ namespace Testing2
             clsOrders order = new clsOrders();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderNumber = 11;
+            Int32 OrderNumber = 1;
             Found = order.Find(OrderNumber);
             // check the order number
-            if (order.OrderAddress != "5, Canvendish Road")
+            if (order.OrderAddress != "01,Discovery  road")
             {
                 OK = false;
             }
@@ -150,10 +150,10 @@ namespace Testing2
             clsOrders order = new clsOrders();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderNumber = 11;
+            Int32 OrderNumber = 1;
             Found = order.Find(OrderNumber);
             // check the order number
-            if (order.OrderPostcode != "LS2 3AR")
+            if (order.OrderPostcode != "LE3 6AL")
             {
                 OK = false;
             }
@@ -167,10 +167,10 @@ namespace Testing2
             clsOrders order = new clsOrders();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderNumber = 11;
+            Int32 OrderNumber = 1;
             Found = order.Find(OrderNumber);
             // check the order number
-            if (order.OrderCountyCode != 826)
+            if (order.OrderCountyCode != 886)
             {
                 OK = false;
             }
@@ -184,10 +184,10 @@ namespace Testing2
             clsOrders order = new clsOrders();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderNumber = 11;
+            Int32 OrderNumber = 1;
             Found = order.Find(OrderNumber);
             // check the order number
-            if (order.OrderTotalAmount != 200)
+            if (order.OrderTotalAmount != 100)
             {
                 OK = false;
             }
@@ -201,7 +201,7 @@ namespace Testing2
             clsOrders order = new clsOrders();
             Boolean Found = false;
             Boolean OK = true;
-            Int32 OrderNumber = 11;
+            Int32 OrderNumber = 1;
             Found = order.Find(OrderNumber);
             // check the order number
             if (order.OrderDeliveryStatus != true)
