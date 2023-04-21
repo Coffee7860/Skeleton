@@ -236,17 +236,17 @@ namespace Testing2
             Boolean OK = true;
 
             //Applying a postcode That doesn't exits
-            FilteredOrders.ReportByPostcode("yyy yyy");
+            FilteredOrders.ReportByPostcode("LE3 5AL");
             //check that the correct number of record are found
             if(FilteredOrders.Count ==2)
             {
                 //check that the first Record is ID 57
-                if (FilteredOrders.OrderList[0].OrderNumber != 57)
+                if (FilteredOrders.OrderList[0].OrderNumber != 3)
                 {
                     OK = false;
                 }
                 //check that the first record is ID 58
-                if (FilteredOrders.OrderList[1].OrderNumber != 58)
+                if (FilteredOrders.OrderList[1].OrderNumber != 4)
                 {
                     OK = false;
                 }
