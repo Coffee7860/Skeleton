@@ -11,16 +11,25 @@ namespace Testing2
         [TestMethod]
         public void InstanceOK()
         {
+            //create an instance of the class we want to create
             clsOrderCollection AllOrder = new clsOrderCollection();
+            //test to see that it exits
             Assert.IsNotNull(AllOrder);
         }
 
         [TestMethod]
         public void OrderListOK()
         {
+            //create an instance of the class we want to create
             clsOrderCollection AllOrder = new clsOrderCollection();
+            //create some test data to assign to the property
+            //in this case the data need to be a list of objects
             List<clsOrders> TestList = new List<clsOrders>();
+
+            //add an item to the list
+            //create the item of the data
             clsOrders TestItem = new clsOrders();
+            //set its properties
             TestItem.OrderAddress = "12,ad";
             TestItem.OrderNumber = 1;
             TestItem.OrderDate = DateTime.Now.Date;
@@ -28,8 +37,11 @@ namespace Testing2
             TestItem.OrderDeliveryStatus = true;
             TestItem.OrderTotalAmount = 1;
             TestItem.OrderCountyCode = 1;
+            //add the item to the test list
             TestList.Add(TestItem);
+            //assign the data to the property
             AllOrder.OrderList = TestList;
+            //test to see that the two value are the same 
             Assert.AreEqual(AllOrder.OrderList, TestList);
         }
         /*
@@ -42,11 +54,15 @@ namespace Testing2
             Assert.AreEqual(AllOrder.Count, SomeCount);
         }
         */
+
         [TestMethod]
         public void ThisOrderPropertyOK()
         {
+            //create an instance of the class we want to create
             clsOrderCollection AllOrder = new clsOrderCollection();
+            //create some test data to assign to the property
             clsOrders TestOrders = new clsOrders();
+            //set the properties of the test object
             TestOrders.OrderAddress = "12,Asd";
             TestOrders.OrderNumber = 1;
             TestOrders.OrderDate = DateTime.Now.Date;
@@ -54,16 +70,24 @@ namespace Testing2
             TestOrders.OrderDeliveryStatus = true;
             TestOrders.OrderTotalAmount = 1;
             TestOrders.OrderCountyCode = 1;
+            //assign the data to the property
             AllOrder.ThisOrder = TestOrders;
+            //test to see that the two value are the same
             Assert.AreEqual(AllOrder.ThisOrder, TestOrders);
         }
 
         [TestMethod]
         public void ListAndCountOK()
         {
+            // create an instance of the class we want to create
             clsOrderCollection AllOrder = new clsOrderCollection();
+            //create some test data to assign to the property
+            //in this cse the data need to be a list of objects
             List<clsOrders> TestList = new List<clsOrders>();
+            //add an item to the list
+            //create the item of test data
             clsOrders TestItem = new clsOrders();
+            //set its properties
             TestItem.OrderAddress = "12,ad";
             TestItem.OrderNumber = 1;
             TestItem.OrderDate = DateTime.Now.Date;
@@ -71,8 +95,11 @@ namespace Testing2
             TestItem.OrderDeliveryStatus = true;
             TestItem.OrderTotalAmount = 1;
             TestItem.OrderCountyCode = 1;
+            //add the item to the test list
             TestList.Add(TestItem);
+            //assign the data to the property
             AllOrder.OrderList = TestList;
+            //test to see that the two value are the same
             Assert.AreEqual(AllOrder.Count, TestList.Count);
         }
         /*

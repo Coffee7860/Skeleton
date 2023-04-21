@@ -11,24 +11,27 @@ namespace ClassLibrary
         { 
             get
             {
+                //return the private member
                 return mOrderList;
             }
             set
             {
+                //set the private member
                 mOrderList = value;
             }
         }
-        public int Count 
-        {
-            get
-            {
-                return mOrderList.Count;
-            }
-            set
-            {
 
-            }
-        }
+        //public int Count 
+        //{
+        //    get
+        //    {
+        //        return mOrderList.Count;
+        //    }
+        //    set
+        //    {
+
+        //    }
+        //}
 
         //private data member ThisOrder
         clsOrders mThisOrder = new clsOrders();
