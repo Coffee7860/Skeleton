@@ -263,7 +263,7 @@ namespace Testing2
             Boolean OK = true;
 
             //Applying a postcode That doesn't exits
-            FilteredOrders.ReportByPostcode("LE3 5AL");
+            FilteredOrders.ReportByPostcode("LE4 5EL");
             //check that the correct number of record are found
             if(FilteredOrders.Count ==2)
             {
