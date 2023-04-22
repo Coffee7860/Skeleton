@@ -60,7 +60,54 @@ namespace ClassLibrary
 
         }
 
+        public string Valid(string companyName, string companyAddress, string contactNumber, string orderDate)
+        {
+            String Error = "";
+            DateTime DateTemp;
+            
+            try
+            {
+                DateTemp = Convert.ToDateTime(orderDate);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    Error = Error + "The OrderDate can not be in the past ";
+                }
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The OrderDate can not be in the future ";
+                }
+            }
+            catch
+            {
+                Error = Error + "The Date was not a valid date";
+            }
+            if (companyName.Length == 0)
+            {
+                Error = Error + "Company name can not be blank ";
+            }
+            if (companyName.Length > 50)
+            {
+                Error = Error + "Company name can not be longer than 50 characters ";
+            }
 
+            if (companyAddress.Length == 0)
+            {
+                Error = Error + "The Address may not be blank ";
+            }
+            if (companyAddress.Length > 50)
+            {
+                Error = Error + "The Address may not be more than 50 characters ";
+            }
+            if (contactNumber.Length == 0)
+            {
+                Error = Error + "The Contact Number may not be blank ";
+            }
+            if (contactNumber.Length > 50)
+            {
+                Error = Error + "The Contact Number may not be more than 50 characters ";
+            }
+            return Error;
+        }
 
         private string mCompanyName;
 

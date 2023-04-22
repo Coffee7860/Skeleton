@@ -7,6 +7,21 @@ namespace Testing1
     [TestClass]
     public class tstSupplier
     {
+        //Good Test Data
+        string CompanyName = "Avou";
+        string CompanyAddress = "LE12";
+        string ContactNumber = "099943";
+        string OrderDate = DateTime.Now.Date.ToString();
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -177,6 +192,277 @@ namespace Testing1
                 OK = false;
             }
             Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void CompanyNameMinLessOne()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            string CompanyName = "";
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void CompanyNameMin()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            string CompanyName = "a";
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CompanyNameMinPlusOne()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            string CompanyName = "aa";
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CompanyNameMaxLessOne()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            string CompanyName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CompanyNameMax()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            string CompanyName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CompanyNameMid()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            string CompanyName = "aaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CompanyNameMaxPlusOne()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            string CompanyName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void CompanyNameExtremeMax()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            string CompanyName = "";
+            CompanyName = CompanyName.PadRight(500,'a');
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void OrderDateExtremeMin()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-100);
+            string OrderDate = TestDate.ToString();
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void OrderDateMinLessOne()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-1);
+            string OrderDate = TestDate.ToString();
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void OrderDateMin()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            string OrderDate = TestDate.ToString();
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void OrderDateMinPlussOne()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(1);
+            string OrderDate = TestDate.ToString();
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void OrderDateExtremeMax()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(100);
+            string OrderDate = TestDate.ToString();
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void OrderDateInvalidData()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            DateTime TestDate;
+            string OrderDate = "This is not a date";
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void CompanyAddressMinLessOne()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            string CompanyAddress = "";
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void CompanyAddressMin()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            string CompanyAddress = "a";
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CompanyAddressMinPlusOne()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            string CompanyAddress = "aa";
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CompanyAddressMaxLessOne()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            string CompanyAddress = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CompanyAddressMax()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            string CompanyAddress = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void CompanyAddressMaxPlusOne()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            string CompanyAddress = "";
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void CompanyAddressMid()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            string CompanyAddress = "aaaaaaaaaaaaaaaaaaaaaaaaa";
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void ContactNumberMinLessOne()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            string ContactNumber = "";
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ContactNumberMin()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            string ContactNumber = "a";
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void ContactNumberMinPlusOne()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            string ContactNumber = "aa";
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void ContactNumberMaxLessOne()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            string ContactNumber = "";
+            ContactNumber = ContactNumber.PadRight(49,'a');
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void ContactNumberMax()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            string ContactNumber = "";
+            ContactNumber = ContactNumber.PadRight(50, 'a');
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void ContactNumberMaxPlusOne()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            string ContactNumber = "";
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void ContactNumberMid()
+        {
+            clsSupplier supplier = new clsSupplier();
+            String Error = "";
+            string ContactNumber = "";
+            ContactNumber = ContactNumber.PadRight(25, 'a');
+            Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+            Assert.AreEqual(Error, "");
         }
     }
 }
