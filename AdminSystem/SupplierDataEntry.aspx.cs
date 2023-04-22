@@ -18,10 +18,30 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //new instance of clsSupplier
         clsSupplier supplier = new clsSupplier();
         //capture the SupplierID
-        supplier.CompanyName = txtCompanyName.Text;
-        //store the CompanyName in the session
-        Session["supplier"] = supplier;
-        //navigate to the viewer page
-        Response.Redirect("SupplierViewer.aspx");
+        string CompanyName = txtCompanyName.Text;
+        string CompanyAddress = txtCompanyAddress.Text;
+        string ContactNumber = txtContactNumber.Text;
+        string OrderDate = txtOrderDate.Text;
+        string UnitCost = txtUnitCost.Text;
+        string Error = "";
+        Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
+        if (Error == "")
+        {
+            supplier.CompanyName = CompanyName;
+            supplier.CompanyAddress = CompanyAddress;
+            supplier.ContactNumber = ContactNumber;
+            supplier.UnitCost = Convert.ToInt32(UnitCost);
+            supplier.OrderDate = Convert.ToDateTime(OrderDate);
+            supplier.Location = chkLocationLocal.Checked;
+
+            //store the CompanyName in the session
+            Session["supplier"] = supplier;
+            //navigate to the viewer page
+            Response.Redirect("SupplierViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
     }
 }
