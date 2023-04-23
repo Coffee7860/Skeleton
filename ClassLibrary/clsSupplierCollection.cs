@@ -52,6 +52,12 @@ namespace ClassLibrary
             DB.AddParameter("@Location", mThisSupplier.Location);
             DB.Execute("sproc_TblSupplier_Update");
         }
+        public void Delete() 
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@SupplierId", mThisSupplier.SupplierId);
+            DB.Execute("sproc_TblSupplier_Delete");
+        }
     
 
         /*public clsSupplierCollection()

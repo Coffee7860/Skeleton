@@ -125,6 +125,27 @@ namespace Testing1
             AllSuppliers.ThisSupplier.Find(PrimaryKey);
             Assert.AreEqual(AllSuppliers.ThisSupplier, TestSupplier);
         }
+        public void DeleteMethodOK() 
+        {
+            clsSupplierCollection AllSuppliers = new clsSupplierCollection();
+            clsSupplier TestItem = new clsSupplier();
+            Int32 PrimaryKey = 0;
+            TestItem.Location = true;
+            TestItem.SupplierId = 1;
+            TestItem.CompanyName = "aaa";
+            TestItem.CompanyAddress = "aaaa";
+            TestItem.ContactNumber = "000000";
+            TestItem.UnitCost = 77;
+            TestItem.OrderDate = DateTime.Now.Date;
+            AllSuppliers.ThisSupplier = TestItem;
+            PrimaryKey = AllSuppliers.Add();
+            TestItem.SupplierId = PrimaryKey;
+            AllSuppliers.ThisSupplier.Find(PrimaryKey);
+            AllSuppliers.Delete();
+            Boolean Found = AllSuppliers.ThisSupplier.Find(PrimaryKey);
+            Assert.IsFalse(Found);
+
+        }
 
 
     }
