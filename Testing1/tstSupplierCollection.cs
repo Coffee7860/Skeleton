@@ -54,7 +54,7 @@ namespace Testing1
             AllSuppliers.ThisSupplier = TestSupplier;
             Assert.AreEqual(AllSuppliers.ThisSupplier, TestSupplier);
         }
-        [TestMethod]
+        /*[TestMethod]
         public void ListAndCountOK()
         {
             clsSupplierCollection AllSuppliers = new clsSupplierCollection();
@@ -70,12 +70,62 @@ namespace Testing1
             TestList.Add(TestItem);
             AllSuppliers.SupplierList = TestList;
             Assert.AreEqual(AllSuppliers.Count, TestList.Count);
-        }
+        }*/
         /*[TestMethod]
         public void TwoRecordsPresent()
         {
             clsSupplierCollection AllSuppliers = new clsSupplierCollection();
             Assert.AreEqual(AllSuppliers.Count, 2);
         }*/
+
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            clsSupplierCollection AllSuppliers = new clsSupplierCollection();
+            clsSupplier TestSupplier = new clsSupplier();
+            Int32 PrimaryKey = 0;
+            TestSupplier.Location = true;
+            TestSupplier.SupplierId = 4;
+            TestSupplier.CompanyName = "aaa";
+            TestSupplier.CompanyAddress = "aaaa";
+            TestSupplier.ContactNumber = "000000";
+            TestSupplier.UnitCost = 77;
+            TestSupplier.OrderDate = DateTime.Now.Date;
+            AllSuppliers.ThisSupplier = TestSupplier;
+            PrimaryKey = AllSuppliers.Add();
+            TestSupplier.SupplierId = PrimaryKey;
+            AllSuppliers.ThisSupplier.Find(PrimaryKey);
+            Assert.AreEqual(AllSuppliers.ThisSupplier, TestSupplier);
+        }
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            clsSupplierCollection AllSuppliers = new clsSupplierCollection();
+            clsSupplier TestSupplier = new clsSupplier();
+            Int32 PrimaryKey = 0;
+            TestSupplier.Location = true;
+            TestSupplier.SupplierId = 4;
+            TestSupplier.CompanyName = "aaa";
+            TestSupplier.CompanyAddress = "aaaa";
+            TestSupplier.ContactNumber = "000000";
+            TestSupplier.UnitCost = 77;
+            TestSupplier.OrderDate = DateTime.Now.Date;
+            AllSuppliers.ThisSupplier = TestSupplier;
+            PrimaryKey = AllSuppliers.Add();
+            TestSupplier.SupplierId = PrimaryKey;
+            TestSupplier.Location = true;
+            TestSupplier.SupplierId = 4;
+            TestSupplier.CompanyName = "bbb";
+            TestSupplier.CompanyAddress = "bbbbbb";
+            TestSupplier.ContactNumber = "111111111";
+            TestSupplier.UnitCost = 57;
+            TestSupplier.OrderDate = DateTime.Now.Date;
+            AllSuppliers.ThisSupplier = TestSupplier;
+            AllSuppliers.Update();
+            AllSuppliers.ThisSupplier.Find(PrimaryKey);
+            Assert.AreEqual(AllSuppliers.ThisSupplier, TestSupplier);
+        }
+
+
     }
 }

@@ -17,6 +17,7 @@
         <asp:Label ID="lblCompanyAddress" runat="server" height="19px" style="z-index: 1; left: 9px; top: 85px; position: absolute" Text="Company Address" width="70px"></asp:Label>
         <asp:TextBox ID="txtCompanyAddress" runat="server" style="z-index: 1; left: 83px; top: 85px; position: absolute"></asp:TextBox>
         <asp:Label ID="lblContactNumber" runat="server" height="19px" style="z-index: 1; left: 10px; top: 117px; position: absolute" Text="Contact Number" width="70px"></asp:Label>
+        <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="z-index: 1; left: 242px; top: 14px; position: absolute" Text="Find" />
         <p>
             &nbsp;</p>
         <p>
