@@ -8,11 +8,17 @@ using ClassLibrary;
 
 public partial class _1_List : System.Web.UI.Page
 {
+    Int32 SupplierId;
     protected void Page_Load(object sender, EventArgs e)
     {
+        SupplierId = Convert.ToInt32(Session["SupplierId"]);
         if (IsPostBack == false)
         {
-            DisplaySuppliers();
+            if (SupplierId != -1) 
+            {
+                DisplaySuppliers();
+            }
+            
         }
 
     }
@@ -23,5 +29,26 @@ public partial class _1_List : System.Web.UI.Page
         lstSupplierList.DataValueField = "SupplierId";
         lstSupplierList.DataTextField = "CompanyAddress";
         lstSupplierList.DataBind();
+    }
+
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        Session["SupplierId"] = -1;
+        Response.Redirect("SupplierDataEntry.aspx");
+    }
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        Int32 SupplierId;
+        if (lstSupplierList.SelectedIndex != -1)
+        {
+            SupplierId = Convert.ToInt32(lstSupplierList.SelectedValue);
+            Session["SupplierId"] = SupplierId;
+            Response.Redirect("SupplierDataEntry.aspx");
+        }
+        else 
+        {
+            lblError.Text = "Please select a record from the list to edit";
+        }
     }
 }

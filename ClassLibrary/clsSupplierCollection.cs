@@ -4,6 +4,8 @@ namespace ClassLibrary
 {
     public class clsSupplierCollection
     {
+        List<clsSupplier> mSupplierList = new List<clsSupplier>();
+        clsSupplier mThisSupplier = new clsSupplier();
         List<clsSupplier> mclsSupplierList = new List<clsSupplier>();
         public List<clsSupplier> SupplierList
         {
@@ -27,28 +29,52 @@ namespace ClassLibrary
                 //
             } 
         }
-        public clsSupplier ThisSupplier { get; set; }
-        /*public clsSupplierCollection()
+        public clsSupplier ThisSupplier 
+        { get 
+            {
+                return mThisSupplier;
+            }
+            set 
+            {
+                mThisSupplier = value;
+            } 
+        }
+
+        public void Update() 
         {
-            clsSupplier TestItem = new clsSupplier();
-            TestItem.Location = true;
-            TestItem.SupplierId = 1;
-            TestItem.CompanyName = "a";
-            TestItem.CompanyAddress = "aa";
-            TestItem.ContactNumber = "0000";
-            TestItem.UnitCost = 11;
-            TestItem.OrderDate = DateTime.Now.Date;
-            mclsSupplierList.Add(TestItem);
-            TestItem = new clsSupplier();
-            TestItem.Location = true;
-            TestItem.SupplierId = 2;
-            TestItem.CompanyName = "b";
-            TestItem.CompanyAddress = "bb";
-            TestItem.ContactNumber = "1200";
-            TestItem.UnitCost = 91;
-            TestItem.OrderDate = DateTime.Now.Date;
-            mclsSupplierList.Add(TestItem);
-        }*/
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@SupplierId", mThisSupplier.SupplierId);
+            DB.AddParameter("@CompanyName", mThisSupplier.CompanyName);
+            DB.AddParameter("@CompanyAddress", mThisSupplier.CompanyAddress);
+            DB.AddParameter("@ContactNumber", mThisSupplier.ContactNumber);
+            DB.AddParameter("@OrderDate", mThisSupplier.OrderDate);
+            DB.AddParameter("@UnitCost", mThisSupplier.UnitCost);
+            DB.AddParameter("@Location", mThisSupplier.Location);
+            DB.Execute("sproc_TblSupplier_Update");
+        }
+    
+
+        /*public clsSupplierCollection()
+{
+clsSupplier TestItem = new clsSupplier();
+TestItem.Location = true;
+TestItem.SupplierId = 1;
+TestItem.CompanyName = "a";
+TestItem.CompanyAddress = "aa";
+TestItem.ContactNumber = "0000";
+TestItem.UnitCost = 11;
+TestItem.OrderDate = DateTime.Now.Date;
+mclsSupplierList.Add(TestItem);
+TestItem = new clsSupplier();
+TestItem.Location = true;
+TestItem.SupplierId = 2;
+TestItem.CompanyName = "b";
+TestItem.CompanyAddress = "bb";
+TestItem.ContactNumber = "1200";
+TestItem.UnitCost = 91;
+TestItem.OrderDate = DateTime.Now.Date;
+mclsSupplierList.Add(TestItem);
+}*/
         public clsSupplierCollection()
         {
             Int32 Index = 0;
@@ -70,5 +96,17 @@ namespace ClassLibrary
                 Index++;
             }
         }
+        public int Add() 
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@CompanyName", mThisSupplier.CompanyName);
+            DB.AddParameter("@CompanyAddress", mThisSupplier.CompanyAddress);
+            DB.AddParameter("@ContactNumber", mThisSupplier.ContactNumber);
+            DB.AddParameter("@OrderDate", mThisSupplier.OrderDate);
+            DB.AddParameter("@UnitCost", mThisSupplier.UnitCost);
+            DB.AddParameter("@Location", mThisSupplier.Location);
+            return DB.Execute("sproc_TblSupplier_Insert");
+        }
+        
     }
 }
