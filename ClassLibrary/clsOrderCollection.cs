@@ -188,5 +188,6 @@ namespace ClassLibrary
             //populate the arraylist with the data table
             PopulateArray(DB);
         }
+        
     }
 }
