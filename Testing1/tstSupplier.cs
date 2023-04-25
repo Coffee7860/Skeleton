@@ -145,7 +145,7 @@ namespace Testing1
             Boolean OK = true;
             Int32 SupplierId = 2;
             Found = supplier.Find(SupplierId);
-            if (supplier.CompanyAddress != "LO2 3BE")
+            if (supplier.CompanyAddress != "LE3")
             {
                 OK = false;
             }

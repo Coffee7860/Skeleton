@@ -125,6 +125,7 @@ namespace Testing1
             AllSuppliers.ThisSupplier.Find(PrimaryKey);
             Assert.AreEqual(AllSuppliers.ThisSupplier, TestSupplier);
         }
+        [TestMethod]
         public void DeleteMethodOK() 
         {
             clsSupplierCollection AllSuppliers = new clsSupplierCollection();
@@ -145,6 +146,44 @@ namespace Testing1
             Boolean Found = AllSuppliers.ThisSupplier.Find(PrimaryKey);
             Assert.IsFalse(Found);
 
+        }
+        [TestMethod]
+        public void ReportByCompanyAddressMethodOK()
+        {
+            clsSupplierCollection AllSuppliers = new clsSupplierCollection();
+            clsSupplierCollection FilteredAddresses = new clsSupplierCollection();
+            FilteredAddresses.ReportByCompanyAddress("");
+            Assert.AreEqual(AllSuppliers.Count, FilteredAddresses.Count);
+        }
+        [TestMethod]
+        public void ReportByCompanyAddressNoneFound()
+        {
+            clsSupplierCollection FilteredAddresses = new clsSupplierCollection();
+            FilteredAddresses.ReportByCompanyAddress("xxx xxx");
+            Assert.AreEqual(0, FilteredAddresses.Count);
+        }
+        [TestMethod]
+        public void ReportByCompanyAddressTestDataFound()
+        {
+            clsSupplierCollection FilteredAddresses = new clsSupplierCollection();
+            Boolean OK = true;
+            FilteredAddresses.ReportByCompanyAddress("bbbb");
+            if (FilteredAddresses.Count == 2)
+            {
+                if (FilteredAddresses.SupplierList[0].SupplierId != 69)
+                {
+                    OK = false;
+                }
+                if (FilteredAddresses.SupplierList[1].SupplierId != 71)
+                {
+                    OK = false;
+                }
+            }
+            else
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
         }
 
 

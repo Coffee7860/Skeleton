@@ -24,12 +24,12 @@ namespace Testing3
         }
 
         [TestMethod]
-        public void ProductQuantityPropertyOK()
+        public void StockQuantityPropertyOK()
         {
             clsStocks stocks = new clsStocks();
             Int32 TestData = 10;
-            stocks.ProductQuantity = TestData;
-            Assert.AreEqual(stocks.ProductQuantity, TestData);
+            stocks.StockQuantity = TestData;
+            Assert.AreEqual(stocks.StockQuantity, TestData);
         }
 
         [TestMethod]
@@ -106,7 +106,7 @@ namespace Testing3
             Boolean OK = true;
             Int32 StocksId = 100;
             Found = stocks.Find(StocksId);
-            if (stocks.StocksQuantity != 100)
+            if (stocks.StockQuantity != 100)
             {
                 OK = false;
             }
@@ -181,6 +181,18 @@ namespace Testing3
                 OK = false;
             }
             Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsStocks stocks = new clsStocks();
+            //String variable to store any error
+            String Error = "";
+            //invoke the method
+            Error = stocks.Valid(StockQuantity, PruductPrice, Stock_In_Date);
+            //test to see that the result is coorect
+            Assert.AreEqual(Error, "");
         }
     }
 }

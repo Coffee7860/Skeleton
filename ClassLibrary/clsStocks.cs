@@ -17,5 +17,10 @@ namespace ClassLibrary
         {
             return true;
         }
+
+        public string Valid(object stocksQuantity, object pruductPrice, object stock_In_Date)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

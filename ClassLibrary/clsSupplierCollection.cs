@@ -9,38 +9,41 @@ namespace ClassLibrary
         List<clsSupplier> mclsSupplierList = new List<clsSupplier>();
         public List<clsSupplier> SupplierList
         {
-            get 
+            get
             {
-                return mclsSupplierList;
+                //return mclsSupplierList;
+                return mSupplierList;
             }
-            set 
+            set
             {
-                mclsSupplierList = value;
+                //mclsSupplierList = value;
+                mSupplierList = value;
             }
         }
-        public int Count 
-        { 
-            get 
+        public int Count
+        {
+            get
             {
-                return mclsSupplierList.Count;
+                //return mclsSupplierList.Count;
+                return mSupplierList.Count;
             }
-            set 
-            { 
+            set
+            {
                 //
-            } 
+            }
         }
-        public clsSupplier ThisSupplier 
-        { get 
+        public clsSupplier ThisSupplier
+        { get
             {
                 return mThisSupplier;
             }
-            set 
+            set
             {
                 mThisSupplier = value;
-            } 
+            }
         }
 
-        public void Update() 
+        public void Update()
         {
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@SupplierId", mThisSupplier.SupplierId);
@@ -52,13 +55,13 @@ namespace ClassLibrary
             DB.AddParameter("@Location", mThisSupplier.Location);
             DB.Execute("sproc_TblSupplier_Update");
         }
-        public void Delete() 
+        public void Delete()
         {
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@SupplierId", mThisSupplier.SupplierId);
             DB.Execute("sproc_TblSupplier_Delete");
         }
-    
+
 
         /*public clsSupplierCollection()
 {
@@ -83,7 +86,10 @@ mclsSupplierList.Add(TestItem);
 }*/
         public clsSupplierCollection()
         {
-            Int32 Index = 0;
+            clsDataConnection DB = new clsDataConnection();
+            DB.Execute("sproc_TblSupplier_SelectAll");
+            PopulateArray(DB);
+            /*Int32 Index = 0;
             Int32 RecordCount = 0;
             clsDataConnection DB = new clsDataConnection();
             DB.Execute("sproc_TblSupplier_SelectAll");
@@ -98,11 +104,12 @@ mclsSupplierList.Add(TestItem);
                 supplier.ContactNumber = Convert.ToString(DB.DataTable.Rows[Index]["ContactNumber"]);
                 supplier.UnitCost = Convert.ToInt32(DB.DataTable.Rows[Index]["UnitCost"]);
                 supplier.OrderDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderDate"]);
-                mclsSupplierList.Add(supplier);
+                //mclsSupplierList.Add(supplier);
+                mSupplierList.Add(supplier);
                 Index++;
-            }
+            }*/
         }
-        public int Add() 
+        public int Add()
         {
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@CompanyName", mThisSupplier.CompanyName);
@@ -112,6 +119,39 @@ mclsSupplierList.Add(TestItem);
             DB.AddParameter("@UnitCost", mThisSupplier.UnitCost);
             DB.AddParameter("@Location", mThisSupplier.Location);
             return DB.Execute("sproc_TblSupplier_Insert");
+        }
+
+       
+
+        public void ReportByCompanyAddress(string CompanyAddress)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@CompanyAddress", CompanyAddress);
+            DB.Execute("sproc_TblSupplier_FilterByCompanyAddress");
+            PopulateArray(DB);
+        }
+       
+        void PopulateArray(clsDataConnection DB) 
+        {
+            Int32 Index = 0;
+            Int32 RecordCount;
+            RecordCount = DB.Count;
+            mSupplierList = new List<clsSupplier>();
+            //mclsSupplierList = new List<clsSupplier>();
+            while (Index < RecordCount) 
+            {
+                clsSupplier supplier = new clsSupplier();
+                supplier.Location = Convert.ToBoolean(DB.DataTable.Rows[Index]["Location"]);
+                supplier.SupplierId = Convert.ToInt32(DB.DataTable.Rows[Index]["SupplierId"]);
+                supplier.CompanyAddress = Convert.ToString(DB.DataTable.Rows[Index]["CompanyAddress"]);
+                supplier.CompanyName = Convert.ToString(DB.DataTable.Rows[Index]["CompanyName"]);
+                supplier.ContactNumber = Convert.ToString(DB.DataTable.Rows[Index]["ContactNumber"]);
+                supplier.UnitCost = Convert.ToInt32(DB.DataTable.Rows[Index]["UnitCost"]);
+                supplier.OrderDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderDate"]);
+                mSupplierList.Add(supplier);
+                //mclsSupplierList.Add(supplier);
+                Index++;
+            }
         }
         
     }
