@@ -166,7 +166,7 @@ namespace Testing2
             //invoke the property 
             Found = order.Find(OrderNumber);
             // check the order number
-            if (order.OrderDate != Convert.ToDateTime("18/04/2023"))
+            if (order.OrderDate != Convert.ToDateTime("12/02/2023"))
             {
                 OK = false;
             }
@@ -188,7 +188,7 @@ namespace Testing2
             //invoke the property 
             Found = order.Find(OrderNumber);
             // check the order number
-            if (order.OrderAddress != "12,ad")
+            if (order.OrderAddress != "01,Discovery road")
             {
                 OK = false;
             }
@@ -210,7 +210,7 @@ namespace Testing2
             //invoke the property 
             Found = order.Find(OrderNumber);
             // check the order number
-            if (order.OrderPostcode != "LE3 5WE")
+            if (order.OrderPostcode != "LE3 6AL")
             {
                 OK = false;
             }

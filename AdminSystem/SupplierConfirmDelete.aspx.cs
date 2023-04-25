@@ -17,7 +17,7 @@ public partial class _1_ConfirmDelete : System.Web.UI.Page
 
     protected void btnYes_Click(object sender, EventArgs e)
     {
-        clsSupplierCollection supplier = new clsSupplierCollection;
+        clsSupplierCollection supplier = new clsSupplierCollection();
         supplier.ThisSupplier.Find(SupplierId);
         supplier.Delete();
         Response.Redirect("SupplierList.aspx");
