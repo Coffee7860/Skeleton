@@ -128,8 +128,8 @@ namespace Testing2
             TestItem.OrderDate = DateTime.Now.Date;
             TestItem.OrderPostcode = "LE3 5WE";
             TestItem.OrderDeliveryStatus = true;
-            TestItem.OrderTotalAmount = 1;
-            TestItem.OrderCountyCode = 1;
+            TestItem.OrderTotalAmount = 1000;
+            TestItem.OrderCountyCode = 886;
 
             //set ThisOrder to the TestData
             AllOrder.ThisOrder = TestItem;
@@ -159,8 +159,8 @@ namespace Testing2
             TestItem.OrderDate = DateTime.Now.Date;
             TestItem.OrderPostcode = "LE3 5WE";
             TestItem.OrderDeliveryStatus = true;
-            TestItem.OrderTotalAmount = 1;
-            TestItem.OrderCountyCode = 1;
+            TestItem.OrderTotalAmount = 100;
+            TestItem.OrderCountyCode = 886;
 
             //set ThisOrder to the Testdata
             AllOrder.ThisOrder = TestItem;
@@ -174,9 +174,9 @@ namespace Testing2
             TestItem.OrderAddress = "13,df";
             TestItem.OrderDate = DateTime.Now.Date;
             TestItem.OrderPostcode = "LE8 11HJ";
-            TestItem.OrderDeliveryStatus = false;
-            TestItem.OrderCountyCode = 10;
-            TestItem.OrderTotalAmount = 10;
+            TestItem.OrderDeliveryStatus = true;
+            TestItem.OrderCountyCode = 886;
+            TestItem.OrderTotalAmount = 100;
 
             //set the record based on the new test data
             AllOrder.ThisOrder = TestItem;
@@ -206,8 +206,8 @@ namespace Testing2
             TestItem.OrderPostcode = "LE3 5WE";
             TestItem.OrderDeliveryStatus = true;
             TestItem.OrderAddress = "12,ad";
-            TestItem.OrderCountyCode = 1;
-            TestItem.OrderTotalAmount = 1;
+            TestItem.OrderCountyCode = 886;
+            TestItem.OrderTotalAmount = 100;
 
             //set ThisOrder to the TestData
             AllOrder.ThisOrder = TestItem;
@@ -263,7 +263,7 @@ namespace Testing2
             Boolean OK = true;
 
             //Applying a postcode That doesn't exits
-            FilteredOrders.ReportByPostcode("LE4 5EL");
+            FilteredOrders.ReportByPostcode("LE3 5AL");
             //check that the correct number of record are found
             if(FilteredOrders.Count ==2)
             {
