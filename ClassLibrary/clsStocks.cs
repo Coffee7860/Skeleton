@@ -138,7 +138,7 @@ namespace ClassLibrary
             }
         }
 
-        public string Valid(object stockQuantity, object pruductPrice, object stock_In_Date)
+        public string Valid(string stock_BrandName, string stock_In_Date)
         {
             //create a string variable to store the error
             string Error = "";
@@ -169,34 +169,17 @@ namespace ClassLibrary
                 Error = Error + "The Date was not a valid date";
             }
 
-            //check if the post code blank
-            if (StockQuantity == 0)
+            //check if the Brand Name is blank
+            if (stock_BrandName.Length == 0)
             {
                 //record the error
-                Error = Error + "The StockQuantity May not be blank: ";
+                Error = Error + "The Stock_BrandName May not be blank: ";
             }
-
-            //check if the ProductPrice is greater than 3 character
-            if (mProductPrice > 1000)
+            if (stock_BrandName.Length > 20)
             {
                 //record the error
-                Error = Error + "The ProductPrice Must be Less than 1000 : ";
+                Error = Error + "The Brand Name Must be Less than 20 Character: ";
             }
-
-            //check if the StockQuantity is blank
-            if (mStockQuantity == 0)
-            {
-                //record the error
-                Error = Error + "The StockQuantity Cannot be blank";
-            }
-
-            //check if the StockQuantity is too much
-            if (mStockQuantity == 51)
-            {
-                //record the error
-                Error = Error + "The StockQuantity Should be no more than 50 ";
-            }
-
             //return the error message 
             return Error;
         }

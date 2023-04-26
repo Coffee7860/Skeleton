@@ -27,13 +27,13 @@ public partial class _1_List : System.Web.UI.Page
                 //create an instance of the Order Collection.
                 clsStockCollection Stock = new clsStockCollection();
                 //set the data source to list of Order in the collection.
-                lstStocksList.DataSource = Stock.StocksList;
+                lstStockList.DataSource = Stock.StocksList;
                 //set the name of the primary key.
-                lstStocksList.DataValueField = "StocksId";
+                lstStockList.DataValueField = "StocksId";
                 //set the data field to display
-                lstStocksList.DataTextField = "StockQuantity";
+                lstStockList.DataTextField = "StockQuantity";
                 //bind the data to the list.
-                lstStocksList.DataBind();
+                lstStockList.DataBind();
             }
         }
     }

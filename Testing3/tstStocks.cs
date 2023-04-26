@@ -7,6 +7,11 @@ namespace Testing3
     [TestClass]
     public class tstStocks
     {
+        // Good Test Data
+        //Create some test Data to pass to the Method
+        string Stock_BrandName = "Boss";
+        string Stock_In_Date = DateTime.Now.Date.ToString();
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -190,8 +195,232 @@ namespace Testing3
             //String variable to store any error
             String Error = "";
             //invoke the method
-            Error = stocks.Valid(StockQuantity, PruductPrice, Stock_In_Date);
+            Error = stocks.Valid(Stock_BrandName, Stock_In_Date);
             //test to see that the result is coorect
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void Stock_In_DateExtremeMin()
+        {
+            //create an instance of the class we want to create
+            clsStocks stocks = new clsStocks();
+            //String variable to store any error
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date to today's date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 10 year
+            TestDate = TestDate.AddYears(-10);
+            //convert the date vaiable to a string variable
+            string Stock_In_Date = TestDate.ToString();
+            //invoke the method
+            Error = stocks.Valid(Stock_BrandName, Stock_In_Date);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void Stock_In_DateMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStocks stocks = new clsStocks();
+            //String variable to store any error
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date to today's date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less 1 day
+            TestDate = TestDate.AddDays(-1);
+            //convert the date vaiable to a string variable
+            string Stock_In_Date = TestDate.ToString();
+            //invoke the method
+            Error = stocks.Valid(Stock_BrandName, Stock_In_Date);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Stock_In_DateMin()
+        {
+            //create an instance of the class we want to create
+            clsStocks stocks = new clsStocks();
+            //String variable to store any error
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date to today's date
+            TestDate = DateTime.Now.Date;
+            //convert the date vaiable to a string variable
+            string Stock_In_Date = TestDate.ToString();
+            //invoke the method
+            Error = stocks.Valid(Stock_BrandName, Stock_In_Date);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Stock_In_DatePlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStocks stocks = new clsStocks();
+            //String variable to store any error
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date to today's date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is plus 1 day
+            TestDate = TestDate.AddDays(1);
+            //convert the date vaiable to a string variable
+            string Stock_In_Date = TestDate.ToString();
+            //invoke the method
+            Error = stocks.Valid(Stock_BrandName, Stock_In_Date);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Stock_In_DateExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsStocks stocks = new clsStocks();
+            //String variable to store any error
+            String Error = "";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the date to today's date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is plus 10 years
+            TestDate = TestDate.AddYears(10);
+            //convert the date vaiable to a string variable
+            string Stock_In_Date = TestDate.ToString();
+            //invoke the method
+            Error = stocks.Valid(Stock_BrandName, Stock_In_Date);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Stock_In_DateInvalidDate()
+        {
+            //create an instance of the class we want to create
+            clsStocks stocks = new clsStocks();
+            //String variable to store any error
+            String Error = "";
+            //set the OrderDate to a non date value
+            string Stock_In_Date = "this is not a Date!";
+            //invoke the method
+            Error = stocks.Valid(Stock_BrandName, Stock_In_Date);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void Stock_BrandNameMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStocks stocks = new clsStocks();
+            //String variable to store any error
+            String Error = "";
+            //this should fail
+            string Stock_BrandName = "";
+            //invoke the method
+            Error = stocks.Valid(Stock_BrandName, Stock_In_Date);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Stock_BrandNameMin()
+        {
+            //create an instance of the class we want to create
+            clsStocks stocks = new clsStocks();
+            //String variable to store any error
+            String Error = "";
+            //this should pass
+            string Stock_BrandName = "b";
+            //invoke the method
+            Error = stocks.Valid(Stock_BrandName, Stock_In_Date);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Stock_BrandNameMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStocks stocks = new clsStocks();
+            //String variable to store any error
+            String Error = "";
+            //this should pass
+            string Stock_BrandName = "aa";
+            //invoke the method
+            Error = stocks.Valid(Stock_BrandName, Stock_In_Date);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Stock_BrandNameMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStocks stocks = new clsStocks();
+            //String variable to store any error
+            String Error = "";
+            //this should pass
+            string Stock_BrandName = "";
+            Stock_BrandName = Stock_BrandName.PadRight(47, 'a');
+            //invoke the method
+            Error = stocks.Valid(Stock_BrandName, Stock_In_Date);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Stock_BrandNameMax()
+        {
+            //create an instance of the class we want to create
+            clsStocks stocks = new clsStocks();
+            //String variable to store any error
+            String Error = "";
+            //this should pass
+            string Stock_BrandName = "";
+            Stock_BrandName = Stock_BrandName.PadRight(48, 'a');
+            //invoke the method
+            Error = stocks.Valid(Stock_BrandName, Stock_In_Date);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Stock_BrandNameMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStocks stocks = new clsStocks();
+            //String variable to store any error
+            String Error = "";
+            //this should fail
+            string Stock_BrandName = "";
+            Stock_BrandName = Stock_BrandName.PadRight(49, 'a');
+            //invoke the method
+            Error = stocks.Valid(Stock_BrandName, Stock_In_Date);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void Stock_BrandNameMid()
+        {
+            //create an instance of the class we want to create
+            clsStocks stocks = new clsStocks();
+            //String variable to store any error
+            String Error = "";
+            //this should pass
+            string Stock_BrandName = "";
+            Stock_BrandName = Stock_BrandName.PadRight(24, 'a');
+            //invoke the method
+            Error = stocks.Valid(Stock_BrandName, Stock_In_Date);
+            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
     }
