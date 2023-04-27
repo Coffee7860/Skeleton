@@ -45,6 +45,7 @@
     <Compile Include="clsOrderCollection.cs" />
     <Compile Include="clsOrders.cs" />
     <Compile Include="clsStaff.cs" />
+    <Compile Include="clsStaffCollection.cs" />
     <Compile Include="clsStockCollection.cs" />
     <Compile Include="clsStocks.cs" />
     <Compile Include="clsSupplier.cs" />

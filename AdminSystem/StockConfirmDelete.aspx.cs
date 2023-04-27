@@ -21,12 +21,12 @@ public partial class _1_ConfirmDelete : System.Web.UI.Page
     protected void btnYes_Click(object sender, EventArgs e)
     {
         //create a new instance of the order class
-        clsStockCollection Stocks = new clsStockCollection();
+        clsStockCollection stocks = new clsStockCollection();
 
         //find the record to delete
-        Stocks.ThisStock.Find(StocksId);
+        stocks.ThisStock.Find(StocksId);
         //Delete the record using primary key
-        Stocks.Delete();
+        stocks.Delete();
 
         //Redirect back to the main page
         Response.Redirect("StockList.aspx");

@@ -7,6 +7,10 @@ namespace Testing5
     [TestClass]
     public class tstStaff
     {
+        // Good Test Data
+        //Create some test Data to pass to the Method
+        string FirstName = "Shalini";
+        string JoinDate = DateTime.Now.Date.ToString();
         [TestMethod]
         public void InstanceOK()
         {

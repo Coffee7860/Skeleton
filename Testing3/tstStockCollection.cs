@@ -35,6 +35,7 @@ namespace Testing3
             TestItem.StocksDeliveryStatus = true;
             TestItem.PruductPrice = 100;
             TestItem.Stock_BrandName = "Boss";
+            TestItem.StockQuantity = 10;
             //add the item to the test list
             TestList.Add(TestItem);
             //assign the data to the property
@@ -64,6 +65,7 @@ namespace Testing3
             TestStocks.StocksDeliveryStatus = true;
             TestStocks.PruductPrice = 100;
             TestStocks.Stock_BrandName = "Boss";
+            TestStocks.StockQuantity = 10;
             //assign the data to the property
             AllStocks.ThisStock = TestStocks;
             //test to see that the two value are the same
@@ -87,6 +89,7 @@ namespace Testing3
             TestItem.StocksDeliveryStatus = true;
             TestItem.PruductPrice = 100;
             TestItem.Stock_BrandName = "Boss";
+            TestItem.StockQuantity = 10;
             //add the item to the test list
             TestList.Add(TestItem);
             //assign the data to the property
@@ -118,7 +121,7 @@ namespace Testing3
             TestItem.StocksDeliveryStatus = true;
             TestItem.PruductPrice = 100;
             TestItem.Stock_BrandName = "Boss";
-
+            TestItem.StockQuantity = 10;
             //set ThisOrder to the TestData
             AllStocks.ThisStock = TestItem;
 

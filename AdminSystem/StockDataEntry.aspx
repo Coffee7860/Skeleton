@@ -55,7 +55,7 @@
         <asp:CheckBox ID="No" runat="server" />
         
         &nbsp;&nbsp;&nbsp;&nbsp;
-       <asp:CheckBox ID="Delivered" runat="server" OnCheckedChanged="CheckBox1_CheckedChanged" />
+       <asp:CheckBox ID="Delivered" runat="server" />
         
         <br />
         <br />
