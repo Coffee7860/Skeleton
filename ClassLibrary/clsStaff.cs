@@ -4,7 +4,20 @@ namespace ClassLibrary
 {
     public class clsStaff
     {
-        public bool StaffAvailableStatus { get; set; }
+        private Boolean mStaffAvailableStatus;
+        public bool StaffAvailableStatus
+        {
+            get
+            {
+                //return the private data
+                return mStaffAvailableStatus;
+            }
+            set
+            {
+                //set the priavte data
+                mStaffAvailableStatus = value;
+            }
+        }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string ContactNum { get; set; }
