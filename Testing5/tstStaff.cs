@@ -65,7 +65,7 @@ namespace Testing5
             clsStaff staff = new clsStaff();
             DateTime TestData = DateTime.Now.Date;
             staff.JoinDate = TestData;
-            Assert.AreEqual(staff.joinDate, TestData);
+            Assert.AreEqual(staff.JoinDate, TestData);
         }
         [TestMethod]
         public void StaffIdPropertyOK()
@@ -186,7 +186,7 @@ namespace Testing5
         public void ValidMethodOK()
         {
             //create an instance of the class we want to create
-            clsStaff stocks = new clsStaff();
+            clsStaff staff = new clsStaff();
             //String variable to store any error
             String Error = "";
             //invoke the method
