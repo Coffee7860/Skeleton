@@ -153,7 +153,7 @@ namespace ClassLibrary
                 //create a blank order
                 clsStocks stocks = new clsStocks();
 
-                //read tin the field from the current record 
+                //read the field from the current record 
                 stocks.StocksId = Convert.ToInt32(DB.DataTable.Rows[Index]["StocksId"]);
                 stocks.Stock_In_Date = Convert.ToDateTime(DB.DataTable.Rows[Index]["Stock_In_Date"]);
                 stocks.Stock_Out_Date = Convert.ToDateTime(DB.DataTable.Rows[Index]["Stock_Out_Date"]);

@@ -112,9 +112,4 @@ public partial class _1_DataEntry : System.Web.UI.Page
             TextBox5.Text = stocks.StocksId.ToString();
         }
     }
-
-    protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
-    {
-
-    }
 }
