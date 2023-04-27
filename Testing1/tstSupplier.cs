@@ -330,7 +330,6 @@ namespace Testing1
         {
             clsSupplier supplier = new clsSupplier();
             String Error = "";
-            DateTime TestDate;
             string OrderDate = "This is not a date";
             Error = supplier.Valid(CompanyName, CompanyAddress, ContactNumber, OrderDate);
             Assert.AreNotEqual(Error, "");
