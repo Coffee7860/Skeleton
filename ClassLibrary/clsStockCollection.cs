@@ -168,5 +168,17 @@ namespace ClassLibrary
                 Index++;
             }
         }
+
+        public void ReportByStock_BrandName(string Stock_BrandName)
+        {
+            
+            clsDataConnection DB = new clsDataConnection();
+            
+            DB.AddParameter("@Stock_BrandName", Stock_BrandName);
+            
+            DB.Execute("sproc_tblStock_FilterByStock_BrandName");
+            
+            PopulateArray(DB);
+        }
     }
 }
