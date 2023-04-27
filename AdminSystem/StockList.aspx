@@ -11,11 +11,14 @@
         <div>
             <asp:ListBox ID="ListBox1" runat="server" Height="258px" style="margin-left: 375px" Width="341px"></asp:ListBox>
         </div>
-        <asp:Button ID="Button1" runat="server" Height="63px" style="margin-left: 312px; margin-top: 33px" Text="Add" Width="66px" />
+        <asp:Button ID="Button1" runat="server" Height="63px" style="margin-left: 312px; margin-top: 33px" Text="Add" Width="66px" OnClick="Button1_Click" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Button2" runat="server" Height="63px" style="margin-left: 74px; margin-top: 0px" Text="Edit" Width="66px" />
+        <asp:Button ID="Button2" runat="server" Height="63px" style="margin-left: 74px; margin-top: 0px" Text="Edit" Width="66px" OnClick="Button2_Click" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Button3" runat="server" Height="63px" Text="Delete" style="margin-left: 86px" Width="66px" />
+        <asp:Button ID="Button3" runat="server" Height="63px" Text="Delete" style="margin-left: 86px" Width="66px" OnClick="Button3_Click" />
+        <br />
+        <br />
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     </form>
 </body>
 </html>

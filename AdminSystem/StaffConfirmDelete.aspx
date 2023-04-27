@@ -12,9 +12,9 @@
             <br />
             Are you sure you want to delete this record ?<br />
             <br />
-            <asp:Button ID="btnYes" runat="server" OnClick="btnYes_Click" Text="Yes" />
+            <asp:Button ID="Yes" runat="server" Text="Yes" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btnNo" runat="server" height="26px" OnClick="btnNo_Click" Text="No" width="37px" />
+            <asp:Button ID="No" runat="server" Text="No" />
             <br />
             <br />
             <br />
