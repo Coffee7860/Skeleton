@@ -18,7 +18,20 @@ namespace ClassLibrary
                 mStaffAvailableStatus = value;
             }
         }
-        public string FirstName { get; set; }
+        private string mFirstName;
+        public string FirstName
+        {
+            get
+            {
+                //return the private data
+                return mFirstName;
+            }
+            set
+            {
+                //set the priavte data
+                mFirstName = value;
+            }
+        }
         public string LastName { get; set; }
         public string ContactNum { get; set; }
         public string Address { get; set; }
