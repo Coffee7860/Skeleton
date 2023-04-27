@@ -32,7 +32,20 @@ namespace ClassLibrary
                 mFirstName = value;
             }
         }
-        public string LastName { get; set; }
+        private string mLastName;
+        public string LastName
+        {
+            get
+            {
+                //return the private data
+                return mLastName;
+            }
+            set
+            {
+                //set the priavte data
+                mLastName = value;
+            }
+        }
         public string ContactNum { get; set; }
         public string Address { get; set; }
         public DateTime JoinDate { get; set; }
