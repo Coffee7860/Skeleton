@@ -112,7 +112,7 @@ namespace ClassLibrary
             //add the parameter for the order number to search for
             DB.AddParameter("@StocksId", stocksId);
             //execute the stored procedure
-            DB.Execute("sproc_tblOrders_FilterByStocksId");
+            DB.Execute("sproc_tblstock_FilterByStocksId");
 
             //if one record is found (there should be only one or zero)
             if (DB.Count == 1)
