@@ -52,13 +52,13 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
             staff.StaffAvailableStatus = No.Checked;
 
-            //create A new instance Of the Stock Collection.
-            clsStockCollection StocksList = new clsStockCollection();
+            //create A new instance Of the Staff Collection.
+            clsStaffCollection StaffList = new clsStaffCollection();
 
             //if this is a new Record (OrderNumber = -1 then add the data)
             if (StaffId == -1)
             {
-                //set the thisstockProperty
+                //set the thisstaffProperty
                 StaffList.ThisStaff = staff;
                 //Add the new record
                 StaffList.Add();
@@ -68,10 +68,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
             {
                 //find the record to update 
                 StaffList.ThisStaff.Find(StaffId);
-                //Set The ThisOrder Property
+                //Set The Thisstaff Property
                 StaffList.ThisStaff = staff;
                 //Update the Record
-                StoaffList.Update();
+                StaffList.Update();
             }
             Response.Redirect("StaffList.aspx");
         }
